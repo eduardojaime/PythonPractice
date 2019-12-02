@@ -19,9 +19,9 @@ for i in range(0, len(columns)):
     print(columns[i].ljust(14), end="")
 print('\n')
 
+root.wm_withdraw()
 name = askopenfilename(initialdir="C:/", filetypes=(("EDI Txt","*.txt"), ("All files","*.*")), title="Select an EDI File")
 
-# root.wm_withdraw()
 
 with open(name, 'r') as file:
     line = file.readline()
