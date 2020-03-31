@@ -58,4 +58,3 @@ print("New element added")
 # new item count
 items = domtree.getElementsByTagName("item")
 print("There are {0} items in the document".format(items.length))
-print()
