@@ -20,17 +20,21 @@ def clear():
 def start_timer(minutes, almostmsg, donemsg):
     # Show almost done message at 90% done
     seconds = minutes * 60
-    marker = seconds * 0.1
+    marker = seconds * 0.9 # 90% done
     
     print('Timer set for {0} minutes, or {1} seconds.'.format(minutes, seconds))
     
-    for  i in range(1, seconds+1):
-        print(i)
+    for i in range(1, seconds):
         time.sleep(1)
+        if i >= marker:
+          print(i, almostmsg)
+        else:
+            print(i)
         # TODO Clear console
         # clear()
         # TODO SHOW MINUTES AND SECONDS IN FORMAT 00:00
-        
+    
+    time.sleep(1) # sleep for an extra second then show completion
     print(donemsg)
     
-start_timer(5, 'Get your spoons ready! Almost done.', 'It\'s cooked!')
+start_timer(1, 'Get your spoons ready! Almost done.', 'It\'s cooked!')
