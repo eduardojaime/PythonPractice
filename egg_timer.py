@@ -37,4 +37,8 @@ def start_timer(minutes, almostmsg, donemsg):
     time.sleep(1) # sleep for an extra second then show completion
     print(donemsg)
     
-start_timer(1, 'Get your spoons ready! Almost done.', 'It\'s cooked!')
+# User configurable timer
+time_text = input('Enter time in minutes')
+time_int = int(time_text)
+start_timer(time_int, 'Get your spoons ready! Almost done.', 'It\'s cooked!')
+
