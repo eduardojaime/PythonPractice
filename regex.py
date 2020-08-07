@@ -41,3 +41,18 @@ for i in range(n):
 o = sorted(l)
 # print set of values separated by semi-colon
 print(';'.join(o))
+
+
+total = 0
+l = []
+n = int(input("Enter number of lines of text"))
+for i in range(n):
+    s = input("Enter a line of text to add to the list")
+    l.append(s)
+    
+q = int(input("Enter number of words to search for"))
+for i in range(q):
+    s = input("Enter a word to search in the text")
+    pat = r'\B(' + s.strip() + ')\B'
+    results = re.findall(pat, "\n".join(l))
+    print("Found " + s + ", " + str(len(results)) + " times")
