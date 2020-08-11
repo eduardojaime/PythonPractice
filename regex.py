@@ -56,3 +56,18 @@ for i in range(q):
     pat = r'\B(' + s.strip() + ')\B'
     results = re.findall(pat, "\n".join(l))
     print("Found " + s + ", " + str(len(results)) + " times")
+    
+# Identify IPv4 and IPv6 Addresses
+ipv4Pattern = r'^((([0-1]?[0-9]?[0-9]?)|([2]?[0-5]?[0-5]?))\.){3}((([0-1]?[0-9]?[0-9]?)|([2]?[0-5]?[0-5]?)))$'
+ipv6Pattern = r'^(([0-9a-f])*\:){7}([0-9a-f]){4}$'
+
+n = int(input("Enter number of addresses to test"))
+for i in range(n):
+    s = input("Enter an IP address")
+    if re.match(ipv4Pattern, s):
+        print("IPv4")
+    elif re.match(ipv6Pattern, s):
+        print("IPv6")
+    else:
+        print("Neither")
+
