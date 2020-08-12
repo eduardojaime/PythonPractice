@@ -70,4 +70,20 @@ for i in range(n):
         print("IPv6")
     else:
         print("Neither")
+    
+    
+# Search for whole word
+s = ""
+n = int(input("Enter number of lines of text to input"))
+# use two separate for loops to avoid O(n^2)
+for i in range(n):
+    s += input("Enter some text") + "\n"
+    
+l = int(input("Enter number of words to search"))
+for j in range(l):
+    w = input("Enter word to search")
+    # \b allows you to perform whole word search
+    # https://www.regular-expressions.info/wordboundaries.html
+    res = re.findall(rf'\b{w}\b', s)
+    print(w + " found " + str(len(res)) + " times")
 
