@@ -87,3 +87,13 @@ for j in range(l):
     res = re.findall(rf'\b{w}\b', s)
     print(w + " found " + str(len(res)) + " times")
 
+# Search for email addresses in text
+import sys
+# Get input until end of file is reached
+p = sys.stdin.read()
+# simple regular expression for detecting an email address example@mail.com
+pat='[\w\.]+@(?:\w+\.)+\w+'
+# find all occurrences
+emaillist = re.findall(pat,p)
+# convert to set to eliminate duplicates, then back to list, then sort, then show as values separated by semi-colon
+print(';'.join(sorted(list(set(emaillist)))))
