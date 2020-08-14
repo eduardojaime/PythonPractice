@@ -97,3 +97,21 @@ pat='[\w\.]+@(?:\w+\.)+\w+'
 emaillist = re.findall(pat,p)
 # convert to set to eliminate duplicates, then back to list, then sort, then show as values separated by semi-colon
 print(';'.join(sorted(list(set(emaillist)))))
+
+# Search for domain names in text
+pattern = r'\bhttps?://(?:www\.)?([\w-]+\..*?)(?<=\.)(com|org|in|net|tv|me)\b'
+ #r'(\w{0,3}\.)?(\w*)(\.[a-zA-Z]{2,3})'
+
+s = ""
+n = int(input("Enter number of lines of text"))
+for i in range(n):
+    s += input("Enter a line of text") + "\n"
+
+ls = []
+# use find all to get all matches
+results = re.findall(pattern, s)
+for r in results:
+    # join results as a single element and add to temp list
+    ls.append("".join(r))
+# convert list to set, then sort and join elements with semi-colon
+print(";".join(sorted(set(ls))))
