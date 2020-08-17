@@ -103,7 +103,7 @@ pattern = r'\bhttps?://(?:www\.)?([\w-]+\..*?)(?<=\.)(com|org|in|net|tv|me)\b'
  #r'(\w{0,3}\.)?(\w*)(\.[a-zA-Z]{2,3})'
 
 s = ""
-n = int(input("Enter number of lines of text"))
+n = int(input("Enter number of lines of text00"))
 for i in range(n):
     s += input("Enter a line of text") + "\n"
 
@@ -115,3 +115,15 @@ for r in results:
     ls.append("".join(r))
 # convert list to set, then sort and join elements with semi-colon
 print(";".join(sorted(set(ls))))
+
+# Search for comments in a block of code 
+# comments are specified using '// one line comment' or /*comment block*/
+import sys 
+# find /*, followed by any character that's not a /, then */ OR // followed by any character
+pattern = r'(\/\*[^\/]+\*\/|\/\/.+)'
+
+# read input text
+s = sys.stdin.read()
+results = re.findall(pattern, s)
+for r in results:
+    print(r)
