@@ -127,3 +127,13 @@ s = sys.stdin.read()
 results = re.findall(pattern, s)
 for r in results:
     print(r)
+
+# Validate lat/lng coordinate pairs
+pattern = r'\([+\-]?(90(\.0+)?|[1-8]\d(\.\d+)?|\d(\.\d+)?), [+\-]?(180(\.0+)?|1[0-7]\d(\.\d+)?|\d{2}(\.\d+)?|\d(\.\d+)?)\)'
+n = int(input("Enter number of coordinates to validate: "))
+for i in range(n):
+    s = input("Enter a new coordinate pair separated by '/'. Example: (77.11112223331, 149.99999999) : ")
+    if re.match(pattern, s):
+        print("Valid")
+    else:
+        print("Invalid")
