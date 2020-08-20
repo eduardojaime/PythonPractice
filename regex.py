@@ -103,7 +103,7 @@ pattern = r'\bhttps?://(?:www\.)?([\w-]+\..*?)(?<=\.)(com|org|in|net|tv|me)\b'
  #r'(\w{0,3}\.)?(\w*)(\.[a-zA-Z]{2,3})'
 
 s = ""
-n = int(input("Enter number of lines of text00"))
+n = int(input("Enter number of lines of text"))
 for i in range(n):
     s += input("Enter a line of text") + "\n"
 
@@ -137,3 +137,16 @@ for i in range(n):
         print("Valid")
     else:
         print("Invalid")
+
+# Search a word within a line of text
+pattern = r'\bPYTHON3\b'
+n = int(input("Enter numer of lines of text to process:"))
+count = 0
+
+
+for i in range(n):
+    s = input("Enter text: ")
+    if re.search(pattern, s, re.IGNORECASE):
+        count += 1
+
+print("Word found : " + str(count))
