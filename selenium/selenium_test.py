@@ -11,9 +11,11 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 # Using Chrome
+# add chromedriver to PATH https://sites.google.com/a/chromium.org/chromedriver/home
 # driver = webdriver.Chrome()
 
 # Using Firefox
+# add geckodriver to PATH
 driver = webdriver.Firefox()
 
 driver.get("http://www.python.org")

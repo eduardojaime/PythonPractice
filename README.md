@@ -7,4 +7,4 @@ Answers to varied Python exercises using:
 Source|Name|Completed On
 -|-|-
 LinkedIn Learning  |Python: JSON, Python and XML|31 March 2020
-eBook|Begin to Code with Python (Microsoft, 2018)| In Progress
+eBook|Begin to Code with Python (Microsoft, 2018)| 8 May 2020
