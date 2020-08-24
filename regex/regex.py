@@ -150,3 +150,16 @@ for i in range(n):
         count += 1
 
 print("Word found : " + str(count))
+
+# Get information from HTML tags
+# Get an ID from an id field, text based on a tag with a specific class, and text within a span with a specific class
+# 3 capture groups > one single result with three elements
+pattern = r'question-summary-(\w\w\w\w\w)".*?class="question-hyperlink">(.+?)</a>.*?class=\"relativetime\">(.+?)</span>'
+
+html = sys.stdin.read()
+
+// find all
+results = re.findall(pattern, html, re.DOTALL)
+
+for r in results:
+    print(";".join(r))
