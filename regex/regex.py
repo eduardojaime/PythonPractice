@@ -158,8 +158,24 @@ pattern = r'question-summary-(\w\w\w\w\w)".*?class="question-hyperlink">(.+?)</a
 
 html = sys.stdin.read()
 
-// find all
+# find all
 results = re.findall(pattern, html, re.DOTALL)
 
 for r in results:
     print(";".join(r))
+    
+# Detect what programming language a given file is
+# C if it includes the keywords '#include'
+C = "(?s).*(#\\s*include\\s*(<\\s*[\\w/]+(\\.\\w+)?\\s*>|\"[\\w/]+(\\.\\w+)?\"\\s*))(?s).*"
+# JAVA if it includes the keywords 'private,public,protected' and 'import'
+JAVA = "(?s).*(^(public\\s+|private\\s+|protected\\s+)*.*\\w+\\(.*?\\)\\s*\\{|import\\s+[\\w\\.\\*]+;)(?s).*"
+# Python if it uses 'print' and 'def'
+PYTHON = "(?s).*(^print\\s\".*\"$|^#\\s.*$|def\\s.*$|^if\\s[^()]+:)(?s).*"
+
+s = sys.stdin.read()
+if (re.match(C, s)):
+    print("C")
+elif (re.match(JAVA, s)):
+    print("Java")
+else:
+    print("Python")
